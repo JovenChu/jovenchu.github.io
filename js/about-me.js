@@ -1,0 +1,3 @@
+// build time:Sun Jun 14 2020 20:19:26 GMT+0800 (China Standard Time)
+$(function(){$.getJSON("../json_data/record.json",function(i){$.each(i,function(i,a){var e='<li class="time-axis-item">'+'<div class="time-axis-date">'+a.date+"<span></span></div>"+'<div class="time-axis-title">'+a.title+"</div>"+'<p class="time-axis-achievement">'+a.achievement+"</p>"+"</li>";$(".time-axis").append(e)})})});
+//rebuild by neat 
