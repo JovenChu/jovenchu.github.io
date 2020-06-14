@@ -1,0 +1,214 @@
+2018-09-14 16:13:26.044 [http-nio-8080-exec-8] DEBUG c.j.l.group.security.JedisShiroCache.load(29)- get cache key: 410001
+2018-09-14 16:13:28.228 [http-nio-8080-exec-9] ERROR c.j.l.g.c.h.ExceptionHandlerAdvice.exception(43)- Catch Exception
+com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method selectJkpByQry in the service com.genlot.order.service.OrderQryServiceFacade. Tried 1 times of the providers [10.13.0.179:20937] (1/1) from the registry 10.13.0.178:2181 on the consumer 10.15.0.110 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: selectJkpByQry, provider: dubbo://10.13.0.179:20937/com.genlot.order.service.OrderQryServiceFacade?anyhost=true&application=joywifi-lottery-channel-ms-hn&check=false&default.check=false&default.retries=0&default.timeout=60000&dubbo=2.8.4&generic=false&interface=com.genlot.order.service.OrderQryServiceFacade&methods=selectDnpByQry,getDnpOrder,selectJkpByQry,getJkpOrder&pid=6840&protocol=dubbo&retries=0&revision=1.0.0&serialization=fst&side=consumer&timeout=20000&timestamp=1536912794070&version=1.0.0, cause: java.io.IOException: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+java.io.IOException: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:168)
+	at com.alibaba.dubbo.common.serialize.support.fst.FstObjectInput.readObject(FstObjectInput.java:82)
+	at com.alibaba.dubbo.common.serialize.support.fst.FstObjectInput.readObject(FstObjectInput.java:93)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode(DecodeableRpcResult.java:85)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode(DecodeableRpcResult.java:117)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:98)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:134)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:95)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:46)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyCodecAdapter$InternalDecoder.messageReceived(NettyCodecAdapter.java:134)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at de.ruedigermoeller.serialization.util.FSTUtil.rethrow(FSTUtil.java:119)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:460)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:453)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatible(FSTObjectInput.java:434)
+	at de.ruedigermoeller.serialization.FSTObjectInput.instantiateAndReadNoSer(FSTObjectInput.java:395)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:261)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectFields(FSTObjectInput.java:522)
+	at de.ruedigermoeller.serialization.FSTObjectInput.instantiateAndReadNoSer(FSTObjectInput.java:402)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:261)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectInternal(FSTObjectInput.java:230)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:210)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:165)
+	... 24 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:457)
+	... 34 more
+Caused by: java.lang.NullPointerException: Class is null
+	at de.ruedigermoeller.serialization.FSTClazzInfoRegistry.getCLInfo(FSTClazzInfoRegistry.java:127)
+	at de.ruedigermoeller.serialization.FSTObjectInput.getClazzInfo(FSTObjectInput.java:299)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:249)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectInternal(FSTObjectInput.java:230)
+	at de.ruedigermoeller.serialization.FSTObjectInput$2.readObjectOverride(FSTObjectInput.java:1131)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:364)
+	at de.ruedigermoeller.serialization.FSTObjectInput$MyObjectStream.readObjectOverride(FSTObjectInput.java:1437)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:364)
+	at java.util.ArrayList.readObject(ArrayList.java:771)
+	... 39 more
+
+	at com.alibaba.dubbo.rpc.cluster.support.FailoverClusterInvoker.doInvoke(FailoverClusterInvoker.java:101) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke(AbstractClusterInvoker.java:227) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke(MockClusterInvoker.java:72) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.proxy.InvokerInvocationHandler.invoke(InvokerInvocationHandler.java:52) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.common.bytecode.proxy6.selectJkpByQry(proxy6.java) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.joywifi.lottery.group.controller.JkpController.getJkpList(JkpController.java:35) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:706) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:943) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:877) ~[spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) [spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:857) [spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) [servlet-api.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) [spring-webmvc-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [servlet-api.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at com.joywifi.lottery.group.plugin.web.RequestWrapperFilter.doFilter(RequestWrapperFilter.java:16) [classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129) [sitemesh-2.4.2.jar:na]
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77) [sitemesh-2.4.2.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) [shiro-core-1.2.3.jar:1.2.3]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) [shiro-core-1.2.3.jar:1.2.3]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383) [shiro-core-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) [shiro-web-1.2.3.jar:1.2.3]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.2.3.jar:1.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [catalina.jar:8.5.32]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650) [catalina.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [catalina.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-coyote.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-coyote.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-coyote.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_80]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_80]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+Caused by: com.alibaba.dubbo.remoting.RemotingException: java.io.IOException: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+java.io.IOException: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:168)
+	at com.alibaba.dubbo.common.serialize.support.fst.FstObjectInput.readObject(FstObjectInput.java:82)
+	at com.alibaba.dubbo.common.serialize.support.fst.FstObjectInput.readObject(FstObjectInput.java:93)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode(DecodeableRpcResult.java:85)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DecodeableRpcResult.decode(DecodeableRpcResult.java:117)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:98)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:134)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:95)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:46)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyCodecAdapter$InternalDecoder.messageReceived(NettyCodecAdapter.java:134)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at de.ruedigermoeller.serialization.util.FSTUtil.rethrow(FSTUtil.java:119)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:460)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:453)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatible(FSTObjectInput.java:434)
+	at de.ruedigermoeller.serialization.FSTObjectInput.instantiateAndReadNoSer(FSTObjectInput.java:395)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:261)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectFields(FSTObjectInput.java:522)
+	at de.ruedigermoeller.serialization.FSTObjectInput.instantiateAndReadNoSer(FSTObjectInput.java:402)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:261)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectInternal(FSTObjectInput.java:230)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:210)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObject(FSTObjectInput.java:165)
+	... 24 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectCompatibleRecursive(FSTObjectInput.java:457)
+	... 34 more
+Caused by: java.lang.NullPointerException: Class is null
+	at de.ruedigermoeller.serialization.FSTClazzInfoRegistry.getCLInfo(FSTClazzInfoRegistry.java:127)
+	at de.ruedigermoeller.serialization.FSTObjectInput.getClazzInfo(FSTObjectInput.java:299)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectWithHeader(FSTObjectInput.java:249)
+	at de.ruedigermoeller.serialization.FSTObjectInput.readObjectInternal(FSTObjectInput.java:230)
+	at de.ruedigermoeller.serialization.FSTObjectInput$2.readObjectOverride(FSTObjectInput.java:1131)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:364)
+	at de.ruedigermoeller.serialization.FSTObjectInput$MyObjectStream.readObjectOverride(FSTObjectInput.java:1437)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:364)
+	at java.util.ArrayList.readObject(ArrayList.java:771)
+	... 39 more
+
+	at com.alibaba.dubbo.remoting.exchange.support.DefaultFuture.returnFromResponse(DefaultFuture.java:190) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.remoting.exchange.support.DefaultFuture.get(DefaultFuture.java:110) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.remoting.exchange.support.DefaultFuture.get(DefaultFuture.java:84) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboInvoker.doInvoke(DubboInvoker.java:96) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.AbstractInvoker.invoke(AbstractInvoker.java:144) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.FutureFilter.invoke(FutureFilter.java:53) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.filter.ConsumerContextFilter.invoke(ConsumerContextFilter.java:48) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.listener.ListenerInvokerWrapper.invoke(ListenerInvokerWrapper.java:74) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53) ~[dubbo-2.8.4.jar:2.8.4]
+	at com.alibaba.dubbo.rpc.cluster.support.FailoverClusterInvoker.doInvoke(FailoverClusterInvoker.java:77) ~[dubbo-2.8.4.jar:2.8.4]
+	... 75 common frames omitted
+2018-09-14 16:13:28.240 [http-nio-8080-exec-9] DEBUG c.j.l.group.security.ShiroSessionDao.load(27)- get session key: 6439e858-cb94-4460-8ba8-d4038f04aec4
