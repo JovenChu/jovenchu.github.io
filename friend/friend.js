@@ -1,3 +1,3 @@
-// build time:Sun Jun 14 2020 19:14:16 GMT+0800 (China Standard Time)
+// build time:Sun Jun 14 2020 19:28:04 GMT+0800 (China Standard Time)
 $(function(){$.getJSON("../friend/friend.json",function(e){$(".links-content").html("");$.each(e,function(e,n){var i='<div class="friend-card-item">';if(n.src==undefined){i+='    <img class="ava" src="/friend/default.jpg" title="图片链接不可用，使用的默认图片">'}else{i+='    <img class="ava" src="'+n.src+'">'}i+="<div class='text-desc' title=\""+n.desc+'">'+"名称："+n.name+"<br>"+'地址：<a href="'+n.url+'" target="_blank">'+n.url+"</a><br>"+"简介："+n.desc+"</div>"+"</div>";$(".links-content").append(i)});$(".links-content").append("</div>")})});
 //rebuild by neat 

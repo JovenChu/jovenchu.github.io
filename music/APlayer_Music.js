@@ -1,3 +1,3 @@
-// build time:Sun Jun 14 2020 19:14:16 GMT+0800 (China Standard Time)
+// build time:Sun Jun 14 2020 19:28:04 GMT+0800 (China Standard Time)
 const ap=new APlayer({container:document.getElementById("aplayer"),mini:false,autoplay:false,theme:"#FADFA3",loop:"all",order:"list",preload:"auto",volume:.8,mutex:true,listFolded:false,listMaxHeight:"120px",lrcType:0,audio:[{name:"Kiss the rain",artist:"yiruma",url:"/music/Kiss_the_rain.mp3",cover:"/music/Kiss_the_rain.jpg",theme:"#46718b"},{name:"Mariage d`amour",artist:"Richard Clayderman",url:"/music/Mariage_damour.mp3",cover:"/music/Mariage_damour.jpg",theme:"#46718b"},{name:"The Sound of Silence",artist:"PaulSimon&Garfunkel",url:"/music/The_sound_of_silence.mp3",cover:"/music/The_sound_of_silence.jpg",theme:"#46718b"}]});
 //rebuild by neat 
